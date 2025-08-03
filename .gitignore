@@ -9,3 +9,5 @@
 *.npz
 *.npy
 *.joblib
+**/predictor.pkl
+**/scaler.pkl
