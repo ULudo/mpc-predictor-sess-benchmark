@@ -1,0 +1,169 @@
+out_dir: "./out/predictor"
+name: "time-mixer"
+data:
+  datasets:
+    - house_data_file: './res/data/opsd_building_1.csv'
+      name: 'opsd_building_1'
+    - house_data_file: './res/data/opsd_building_3.csv'
+      name: 'opsd_building_3'
+    - house_data_file: './res/data/opsd_building_4.csv'
+      name: 'opsd_building_4'
+    - house_data_file: './res/data/opsd_building_6.csv'
+      name: 'opsd_building_6'
+  price_data_file: './res/data/ee_prices.csv'
+  data_format: 'csv'
+  label: 'price'
+  building:
+    eval:
+      - name: 'opsd_building_6'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+    test:
+      - name: 'opsd_building_6'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+  price:
+    eval:
+      - name: 'belgium'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'denmark_west'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'denmark_east'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'france'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'netherlands'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'norway'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'sweden'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'switzerland'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'czech_republic'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'germany'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'italy'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'slovenia'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+      - name: 'hungary'
+        periods:
+          - start_date: 1498860000
+            end_date: 1514760300
+    test:
+      - name: 'belgium'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'denmark_west'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'denmark_east'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'france'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'netherlands'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'norway'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'sweden'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'switzerland'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'czech_republic'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'germany'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'italy'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'slovenia'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+      - name: 'hungary'
+        periods:
+          - start_date: 1514761200
+            end_date: 1523224800
+model:
+  name: 'predictor'
+  predictor_type: 'time_mixer'
+  action: 'train_and_evaluate'
+  sequence_length: 96
+  prediction_steps: 96
+  two_d: False
+  use_time_features: True
+  sin_cos_encoding: True
+  seed: 42
+  kwargs:
+    device: 'cuda:1'
+    early_stopping: True
+    epochs: 200
+    patience: 10
+    batch_size: 64
+    seq_len: 96
+    pred_len: 96
+    embed: 'fixed'
+    freq: 't'
+    c_out: 1
+    enc_in: 7
+    label_len: 0
+    use_norm: True
+    down_sampling_method: 'avg'
+    channel_independence: False
+    down_sampling_window: 4
+    e_layers: 1
+    moving_avg: 3
+    d_model: 48
+    dropout: 0.1
+    d_ff: 80
+    down_sampling_layers: 2
+    top_k: 4
+    decomp_method: moving_avg
+    learning_rate: 0.0001379294488562

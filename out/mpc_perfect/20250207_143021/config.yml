@@ -1,0 +1,29 @@
+out_dir: "./out"
+name: "mpc_perfect"
+n_eval_runs: 1
+data:
+  datasets:
+    - name: "opsd_building_6"
+      house_data_file: "./res/data/opsd_building_6.csv"
+      price_data_column: 'germany'
+  price_data_file: "./res/data/ee_prices.csv"
+  data_format: "csv"
+model:
+  name: 'mpc'
+  mpc_type: 'perfect'
+  prediction_length: 96
+environment:
+  battery:
+    efficiency: 0.95
+    capacity: 20000
+    max_power: 8000
+  scaling_method: "none"
+  random_time_init: false
+  init_time: 1514847600  # 1514761200+86400 
+  episode_length: 8290800 # 8463600-2*24*3600 (I start 24 hours earlier, for the heat up and stop 24 hours earlier for the perfect predictions)
+  action_space_type: 'continuous'
+  tax: 20
+  prediction_horizon: 86400
+  dataset_args:
+    building: "opsd_building_6"
+    price: "germany"

@@ -1,0 +1,45 @@
+out_dir: "./out"
+name: "mpc_predictor_linear"
+n_eval_runs: 1
+data:
+  datasets:
+    - name: "opsd_building_6"
+      house_data_file: "./res/data/opsd_building_6.csv"
+      price_data_column: 'germany'
+  price_data_file: "./res/data/ee_prices.csv"
+  data_format: "csv"
+model:
+  name: 'mpc'
+  mpc_type: 'predictor'
+  load:
+    predictor_type: 'linear'
+    predictor_path: './out/predictor/linear/20250207_072124/predictor.pkl'
+    scaler_path: './out/predictor/linear/20250207_072124/scaler.pkl'
+    two_d: True
+  pv:
+    predictor_type: 'linear'
+    predictor_path: './out/predictor/linear/20250207_072235/predictor.pkl'
+    scaler_path: './out/predictor/linear/20250207_072235/scaler.pkl'
+    two_d: True
+  price:
+    predictor_type: 'linear'
+    predictor_path: './out/predictor/linear/20250207_072340/predictor.pkl'
+    scaler_path: './out/predictor/linear/20250207_072340/scaler.pkl'
+    two_d: True
+  history_length: 96
+  prediction_length: 96
+environment:
+  battery:
+    efficiency: 0.95
+    capacity: 20000
+    max_power: 8000
+  scaling_method: "none"
+  random_time_init: false
+  init_time: 1514761200
+  episode_length: 8377200
+  action_space_type: "continuous"
+  tax: 20
+  prediction_horizon: 0
+  dataset_args:
+    building: "opsd_building_6"
+    price: "germany"
