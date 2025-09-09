@@ -71,20 +71,19 @@ Some of the prediction-model implementations are adapted from the [Time-Series-L
 
 ## Citation
 
-**Pre-print:** <http://dx.doi.org/10.2139/ssrn.5158084>
+**Paper:** <https://doi.org/10.1016/j.segy.2025.100202>
 
 If you use this repository or find it helpful in your own research, please cite:
 
 ```bibtex
 @misc{Ludolfinger2025,
-	address = {Rochester, NY},
-	type = {{SSRN} {Scholarly} {Paper}},
-	title = {A {Comprehensive} {Evaluation} of {Prediction} {Techniques} and {Their} {Influence} on {Model} {Predictive} {Control} in {Smart} {Energy} {Storage} {Systems}},
-	doi = {10.2139/ssrn.5158084},
-	language = {en},
-	author = {Ludolfinger, Ulrich and Hamacher, Thomas and Martens, Maren},
-	month = feb,
-	year = {2025},
+    title = {A comprehensive evaluation of prediction techniques and their influence on model predictive control in smart energy storage systems},
+    journal = {Smart Energy},
+    pages = {100202},
+    year = {2025},
+    issn = {2666-9552},
+    doi = {https://doi.org/10.1016/j.segy.2025.100202},
+    author = {Ulrich Ludolfinger and Thomas Hamacher and Maren Martens},
 }
 ```
 
